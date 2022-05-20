@@ -1,0 +1,31 @@
+services:
+
+  app:
+    build: .
+    restart: unless-stopped
+    depends_on: 
+      db:
+        condition: service_healthy
+    ports:
+      - 1111:1111
+    environment:
+      - APP_DB_CONNECTION_STRING=root:kozato321@tcp(db:3306)/miniproject?charset=utf8mb4&parseTime=True&loc=Local
+      - APP_PORT=1111
+
+  db:
+    image: bitnami/mysql
+    restart: unless-stopped
+    ports:
+      - 3306:3306
+    environment:
+      - MYSQL_ROOT_PASSWORD=kozato321
+      - MYSQL_DATABASE=miniproject
+    healthcheck:
+      test: ["CMD", "mysql", "-u", "root", "-pkozato321", "-e", "show schemas"]
+      interval: 10s
+      
+  adminer:
+    image: adminer
+    restart : unless-stopped
+    ports:
+      - 1110:1111
