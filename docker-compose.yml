@@ -16,13 +16,13 @@ services:
     image: bitnami/mysql
     restart: unless-stopped
     ports:
-      - 3306:3306
+      - 3307:3306
     environment:
       - MYSQL_ROOT_PASSWORD=kozato321
       - MYSQL_DATABASE=miniproject
     healthcheck:
       test: ["CMD", "mysql", "-u", "root", "-pkozato321", "-e", "show schemas"]
-      interval: 10s
+      interval: 30s
       
   adminer:
     image: adminer
