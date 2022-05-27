@@ -18,7 +18,7 @@ func TestPersonControllerAdd(t *testing.T) {
 
 	newPersonJson, _ := json.Marshal(map[string]string{
 		"Username": "test1",
-		"Passowrd": "pass",
+		"Password": "pass",
 		"Name":     "usertest1",
 		"Email":    "usertest@gmail.com",
 	})
