@@ -22,8 +22,6 @@ func main() {
 // 	"github.com/labstack/echo/v4/middleware"
 // )
 
-// const secretJwt = "d6ca6c89-ce38-49d4-8d8e-db0c553b4f25" // kunci untuk buat JWT
-
 // func main() {
 // 	e := echo.New()
 
